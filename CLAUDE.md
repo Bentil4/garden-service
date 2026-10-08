@@ -142,7 +142,7 @@ Prettier and ESLint are the team's formatting rules; don't format by hand agains
 
 ## PR requirements
 
-Every PR to `dev` / `master` must pass:
+Every PR to `develop` / `master` must pass:
 
 1. **PR title & commits** — Conventional Commits: `type(scope)?: description`. Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `ci`.
 2. **Branch name** — must start with `feat/`, `feature/`, `fix/`, `bugfix/`, `hotfix/`, `refactor/`, `chore/`, `docs/`, or `release/`.
