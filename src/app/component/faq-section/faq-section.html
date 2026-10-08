@@ -1,0 +1,23 @@
+<section
+  id="faq"
+  class="px-4 py-16 sm:px-8 lg:px-12 lg:py-20 xl:px-[98px]"
+  aria-labelledby="faq-title"
+>
+  <div class="mx-auto flex max-w-[1244px] flex-col gap-12 lg:gap-20">
+    <app-section-heading
+      headingId="faq-title"
+      title="Frequently Asked Questions"
+      highlight="Questions"
+      align="center"
+      description="Quick answers to the questions we hear most often. Cannot find what you need? Get in touch and we will be happy to help."
+    />
+    <hlm-accordion type="single">
+      @for (faq of faqs; track faq.id) {
+        <hlm-accordion-item [isOpened]="$first">
+          <hlm-accordion-trigger>{{ faq.question }}</hlm-accordion-trigger>
+          <hlm-accordion-content>{{ faq.answer }}</hlm-accordion-content>
+        </hlm-accordion-item>
+      }
+    </hlm-accordion>
+  </div>
+</section>
