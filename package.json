@@ -42,6 +42,7 @@
     "@angular/cli": "^22.2.2",
     "@angular/compiler-cli": "^22.2.0",
     "@eslint/js": "^10.0.1",
+    "@netlify/angular-runtime": "^4.0.0",
     "@spartan-ng/cli": "^1.6.2",
     "@types/compression": "^1.8.1",
     "@types/express": "^5.0.1",
