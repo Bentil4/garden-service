@@ -1,0 +1,42 @@
+<section
+  id="why-choose-us"
+  class="px-4 py-16 sm:px-8 lg:px-12 lg:py-20 xl:px-[98px]"
+  aria-labelledby="why-choose-title"
+>
+  <div class="mx-auto grid max-w-[1244px] items-center gap-10 lg:grid-cols-[538fr_610fr] lg:gap-24">
+    <div
+      class="relative aspect-4/3 overflow-hidden rounded-2xl bg-muted lg:aspect-auto lg:h-[560px]"
+    >
+      <img
+        class="object-cover"
+        ngSrc="images/why.webp"
+        ngSrcset="480w, 740w"
+        alt="Landscapers planning a garden project together"
+        fill
+        sizes="(min-width: 1024px) 43vw, 100vw"
+      />
+    </div>
+    <div class="flex flex-col gap-10">
+      <app-section-heading
+        headingId="why-choose-title"
+        title="They Choose Us"
+        highlight="Choose Us"
+        description="Homeowners and businesses trust us because we listen first, plan carefully and deliver work that lasts. Here is what you can count on every time we step into your garden."
+      />
+      <ul class="flex flex-col gap-6 sm:gap-10">
+        @for (strength of strengths; track strength.id) {
+          <li class="flex items-center gap-6">
+            <span class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-primary">
+              <img ngSrc="icons/check.svg" width="32" height="32" alt="" />
+            </span>
+            <span
+              class="font-heading text-[1.375rem]/7 font-semibold text-foreground sm:text-[1.75rem]/8"
+            >
+              {{ strength.label }}
+            </span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

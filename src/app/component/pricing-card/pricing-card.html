@@ -1,0 +1,33 @@
+<article hlmCard class="h-full gap-0 py-0">
+  <header
+    class="flex items-center justify-between gap-4 px-6 py-8 sm:px-8"
+    [class]="theme().header"
+  >
+    <h3 class="font-heading text-[1.3125rem]/6 font-semibold">{{ plan().name }}</h3>
+    <span hlmBadge class="px-6 sm:px-6" [variant]="theme().badge">{{ plan().badge }}</span>
+  </header>
+
+  <div class="flex flex-col items-center gap-4 p-10 text-center" [class]="theme().price">
+    <p class="font-heading text-h2 font-semibold">
+      {{ plan().pricePerMonth | currency: 'USD' : 'symbol' : '1.2-2' }}
+    </p>
+    <p class="leading-6 font-medium">/Per month</p>
+  </div>
+
+  <div class="flex flex-1 flex-col justify-between gap-10 p-10" [class]="theme().body">
+    <ul class="flex flex-col gap-4">
+      @for (feature of plan().features; track feature) {
+        <li class="flex flex-col gap-4">
+          <span class="flex items-center gap-4 leading-6 font-medium">
+            <ng-icon name="lucideCircleCheck" size="24" aria-hidden="true" />
+            {{ feature }}
+          </span>
+          <hlm-separator decorative [class]="theme().separator" />
+        </li>
+      }
+    </ul>
+    <button hlmBtn [variant]="theme().button" class="w-full py-6 lg:py-6" type="button">
+      Purchase
+    </button>
+  </div>
+</article>

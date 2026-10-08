@@ -1,0 +1,40 @@
+<article class="flex h-full flex-col gap-6">
+  <div class="relative aspect-388/320 overflow-hidden rounded-2xl bg-muted">
+    <img
+      class="object-cover"
+      [ngSrc]="article().imageSrc"
+      [alt]="article().imageAlt"
+      fill
+      sizes="(min-width: 1024px) 31vw, (min-width: 768px) 46vw, 100vw"
+    />
+  </div>
+  <p class="font-semibold text-primary">{{ article().category }}</p>
+  <div class="flex flex-1 flex-col gap-4">
+    <h3 class="font-heading text-[1.375rem]/7 font-semibold text-foreground sm:text-[1.75rem]/8">
+      {{ article().title }}
+    </h3>
+    <ul class="flex flex-wrap items-center gap-x-4 gap-y-2 text-muted-foreground">
+      <li class="flex items-center gap-2">
+        <ng-icon name="lucideMessageSquare" size="24" aria-hidden="true" />
+        <span><span class="sr-only">Comments: </span>{{ article().comments }}</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <ng-icon name="lucideEye" size="24" aria-hidden="true" />
+        <span><span class="sr-only">Views: </span>{{ article().views }}</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <ng-icon name="lucideClock" size="24" aria-hidden="true" />
+        <span>{{ article().publishedLabel }}</span>
+      </li>
+    </ul>
+    <p class="leading-6 font-medium text-muted-foreground">{{ article().excerpt }}</p>
+  </div>
+  <button
+    hlmBtn
+    class="w-full py-6 lg:py-6"
+    type="button"
+    [attr.aria-label]="'Read more: ' + article().title"
+  >
+    Read More
+  </button>
+</article>

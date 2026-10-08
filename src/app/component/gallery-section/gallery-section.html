@@ -1,0 +1,30 @@
+<section
+  id="gallery"
+  class="px-4 py-16 sm:px-8 lg:px-12 lg:py-20 xl:px-[98px]"
+  aria-labelledby="gallery-title"
+>
+  <div class="mx-auto flex max-w-[1244px] flex-col gap-12 lg:gap-20">
+    <app-section-heading
+      headingId="gallery-title"
+      title="Our Gallery"
+      highlight="Gallery"
+      align="center"
+      description="A glimpse of our team at work, from planting new beds to keeping lawns and borders in top shape."
+    />
+    <ul
+      class="grid grid-cols-2 gap-4 sm:gap-6 lg:aspect-1244/506 lg:grid-cols-[449fr_169fr_169fr_337fr] lg:grid-rows-[238fr_228fr] lg:gap-10"
+    >
+      @for (image of images; track image.id) {
+        <li class="relative overflow-hidden rounded-2xl bg-muted" [class]="areaClasses[image.area]">
+          <img
+            class="object-cover"
+            [ngSrc]="image.src"
+            [alt]="image.alt"
+            fill
+            sizes="(min-width: 1024px) 36vw, 50vw"
+          />
+        </li>
+      }
+    </ul>
+  </div>
+</section>

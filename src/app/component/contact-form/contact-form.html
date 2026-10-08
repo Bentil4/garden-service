@@ -1,0 +1,67 @@
+<form class="flex flex-col gap-10" novalidate (ngSubmit)="submit()" [formGroup]="form">
+  <div hlmFieldGroup>
+    <div hlmField>
+      <label hlmFieldLabel for="contact-full-name">Full name</label>
+      <input
+        hlmInput
+        id="contact-full-name"
+        type="text"
+        autocomplete="name"
+        placeholder="Enter your full name"
+        formControlName="fullName"
+      />
+      <hlm-field-error validator="required">Enter your full name.</hlm-field-error>
+      <hlm-field-error validator="minlength"
+        >Your name needs at least 2 characters.</hlm-field-error
+      >
+    </div>
+    <div hlmField>
+      <label hlmFieldLabel for="contact-email">Email</label>
+      <input
+        hlmInput
+        id="contact-email"
+        type="email"
+        autocomplete="email"
+        placeholder="Enter your email"
+        formControlName="email"
+      />
+      <hlm-field-error validator="required">Enter your email address.</hlm-field-error>
+      <hlm-field-error validator="email">Enter a valid email address.</hlm-field-error>
+    </div>
+    <div hlmField>
+      <label hlmFieldLabel for="contact-message">Message</label>
+      <textarea
+        hlmTextarea
+        id="contact-message"
+        rows="4"
+        placeholder="Enter your message"
+        formControlName="message"
+      ></textarea>
+      <hlm-field-error validator="required">Enter your message.</hlm-field-error>
+      <hlm-field-error validator="minlength">
+        Your message needs at least 10 characters.
+      </hlm-field-error>
+    </div>
+  </div>
+
+  <button
+    hlmBtn
+    variant="secondary"
+    class="w-full py-6 lg:py-6"
+    type="submit"
+    [disabled]="status() === 'submitting'"
+  >
+    {{ status() === 'submitting' ? 'Sending…' : 'Send message' }}
+  </button>
+
+  <p class="font-semibold" role="status">
+    @switch (status()) {
+      @case ('success') {
+        Thank you! Your message has been sent.
+      }
+      @case ('error') {
+        Something went wrong. Please try again.
+      }
+    }
+  </p>
+</form>

@@ -1,0 +1,50 @@
+<section
+  class="relative isolate flex min-h-svh flex-col overflow-clip bg-ink"
+  aria-labelledby="hero-title"
+>
+  <img
+    class="-z-10 object-cover"
+    ngSrc="images/hero.webp"
+    ngSrcset="640w, 828w, 1024w, 1476w"
+    alt=""
+    fill
+    priority
+    sizes="100vw"
+  />
+  <div class="absolute inset-0 -z-10 bg-[rgb(40_40_40/0.58)]"></div>
+
+  <div
+    class="flex flex-1 flex-col items-center justify-center gap-6 px-4 pt-28 pb-10 text-center text-white sm:px-8 lg:pt-40"
+  >
+    <h1 id="hero-title" class="max-w-[1061px] font-heading text-display font-bold wrap-break-word">
+      Gardens of Distinction
+    </h1>
+    <p class="max-w-[731px] leading-6 font-medium">
+      From the first sketch to the final planting, we design, build and care for outdoor spaces that
+      stay beautiful in every season.
+    </p>
+    <div
+      class="mt-4 flex w-full max-w-sm flex-col gap-4 sm:max-w-none sm:w-auto sm:flex-row sm:gap-10"
+    >
+      <button hlmBtn size="lg" class="sm:min-w-51" type="button">Get Started</button>
+      <button hlmBtn size="lg" variant="secondary" class="sm:min-w-51" type="button">
+        Learn More
+      </button>
+    </div>
+  </div>
+
+  <div class="px-4 pb-8 sm:px-8 lg:pb-20">
+    <dl
+      class="mx-auto grid max-w-[986px] grid-cols-2 gap-x-4 gap-y-8 rounded-2xl bg-white p-6 sm:p-8 md:grid-cols-4 md:gap-x-0 md:divide-x md:divide-black/15"
+    >
+      @for (stat of stats; track stat.label) {
+        <div class="flex flex-col-reverse items-center gap-2 px-2 text-center">
+          <dt class="leading-6 font-medium text-body">{{ stat.label }}</dt>
+          <dd class="font-heading text-stat font-semibold text-ink">
+            {{ stat.value }}<span class="text-brand-strong">+</span>
+          </dd>
+        </div>
+      }
+    </dl>
+  </div>
+</section>

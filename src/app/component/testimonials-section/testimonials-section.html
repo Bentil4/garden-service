@@ -1,0 +1,20 @@
+<section
+  id="testimonials"
+  class="px-4 py-16 sm:px-8 lg:px-12 lg:py-20 xl:px-[98px]"
+  aria-labelledby="testimonials-title"
+>
+  <div class="mx-auto flex max-w-[1244px] flex-col gap-12 lg:gap-20">
+    <app-section-heading
+      headingId="testimonials-title"
+      title="See What They Are Saying About EcoSculpt"
+      highlight="EcoSculpt"
+      align="center"
+      description="Hear from homeowners and businesses who trust EcoSculpt to look after their outdoor spaces."
+    />
+    <ul class="grid gap-x-10 gap-y-12 md:grid-cols-2">
+      @for (testimonial of testimonials; track testimonial.id) {
+        <li><app-testimonial-card [testimonial]="testimonial" /></li>
+      }
+    </ul>
+  </div>
+</section>

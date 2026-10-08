@@ -1,0 +1,64 @@
+<footer
+  class="bg-primary px-4 py-16 text-primary-foreground sm:px-8 lg:px-12 lg:py-24 xl:px-[98px]"
+>
+  <div
+    class="mx-auto grid max-w-[1244px] gap-12 sm:grid-cols-2 lg:grid-cols-[271px_auto_293px_auto] lg:justify-between"
+  >
+    <div class="flex flex-col gap-6 lg:gap-10">
+      <p id="footer-brand" class="font-heading text-logo font-semibold">EcoSculpt</p>
+      <p class="leading-6 font-medium">
+        Sustainable landscaping and gardening, designed, built and cared for by a team that loves
+        outdoor spaces.
+      </p>
+    </div>
+
+    <nav class="flex flex-col gap-6 lg:gap-10" aria-labelledby="footer-links">
+      <h2 id="footer-links" class="font-heading text-[1.3125rem]/6 font-semibold">Quick Links</h2>
+      <ul class="flex flex-col gap-4 font-medium">
+        @for (link of links; track link.label) {
+          <li>
+            <a class="inline-flex min-h-6 underline-offset-4 hover:underline" [href]="link.href">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="flex flex-col gap-6 lg:gap-10">
+      <h2 id="footer-contact" class="font-heading text-[1.3125rem]/6 font-semibold">Contact Us</h2>
+      <address class="flex flex-col gap-4 font-medium not-italic">
+        @for (contact of contacts; track contact.id) {
+          <p class="flex items-start gap-2 leading-6">
+            <ng-icon class="mt-1 shrink-0" [name]="contact.icon" size="16" aria-hidden="true" />
+            <span class="sr-only">{{ contact.label }}: </span>
+            @if (contact.href) {
+              <a class="underline-offset-4 hover:underline" [href]="contact.href">
+                {{ contact.value }}
+              </a>
+            } @else {
+              <span>{{ contact.value }}</span>
+            }
+          </p>
+        }
+      </address>
+    </div>
+
+    <div class="flex flex-col gap-6 lg:gap-10">
+      <h2 id="footer-social" class="font-heading text-[1.3125rem]/6 font-semibold">Follow Us</h2>
+      <ul class="flex gap-8">
+        @for (social of socials; track social.id) {
+          <li>
+            <a
+              class="flex size-11 items-center justify-center rounded-lg bg-card text-primary"
+              [href]="social.href"
+              [attr.aria-label]="social.label"
+            >
+              <ng-icon [name]="social.icon" size="24" aria-hidden="true" />
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</footer>

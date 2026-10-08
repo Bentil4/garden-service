@@ -1,0 +1,20 @@
+<section
+  id="blog"
+  class="px-4 py-16 sm:px-8 lg:px-12 lg:py-20 xl:px-[98px]"
+  aria-labelledby="blog-title"
+>
+  <div class="mx-auto flex max-w-[1244px] flex-col gap-12 lg:gap-20">
+    <app-section-heading
+      headingId="blog-title"
+      title="Blog And Articles"
+      highlight="Articles"
+      align="center"
+      description="Practical advice, seasonal tips and fresh ideas from our landscaping team to help your garden thrive."
+    />
+    <ul class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+      @for (article of articles; track article.id) {
+        <li><app-article-card class="h-full" [article]="article" /></li>
+      }
+    </ul>
+  </div>
+</section>
