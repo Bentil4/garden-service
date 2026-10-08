@@ -1,0 +1,18 @@
+<article
+  hlmCard
+  class="h-full"
+  [class.bg-primary]="item().featured"
+  [class.text-primary-foreground]="item().featured"
+>
+  <div hlmCardContent class="flex flex-col gap-6">
+    <img [ngSrc]="item().iconSrc" width="64" height="64" alt="" />
+    <div class="flex flex-col gap-4">
+      <h3 hlmCardTitle [class.text-primary-foreground]="item().featured">
+        <app-highlighted-text [text]="item().title" [highlight]="item().highlight" />
+      </h3>
+      <p hlmCardDescription [class.text-primary-foreground]="item().featured">
+        {{ item().description }}
+      </p>
+    </div>
+  </div>
+</article>
