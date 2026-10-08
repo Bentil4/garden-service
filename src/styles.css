@@ -1,0 +1,125 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+@import '@spartan-ng/brain/hlm-tailwind-preset.css';
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('/fonts/montserrat-latin-600-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('/fonts/montserrat-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/plus-jakarta-sans-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('/fonts/plus-jakarta-sans-latin-500-normal.woff2') format('woff2');
+}
+
+@theme {
+  --color-brand: #2da884;
+  --color-brand-strong: #1f7a5e;
+  --color-ink: #232a42;
+  --color-body: #525252;
+
+  --font-heading: 'Montserrat', system-ui, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --text-display: clamp(2.25rem, 0.5rem + 9.4vw, 8.625rem);
+  --text-display--line-height: 1.04;
+  --text-h2: clamp(2.25rem, 1.2rem + 3.6vw, 4.1875rem);
+  --text-h2--line-height: 1.075;
+  --text-stat: clamp(2.25rem, 1.5rem + 2.4vw, 3.125rem);
+  --text-stat--line-height: 1.12;
+  --text-logo: clamp(1.75rem, 1.4rem + 1.2vw, 2.375rem);
+  --text-logo--line-height: 1.26;
+}
+
+@layer base {
+  html {
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ink);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #fff;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Spartan semantic tokens mapped to the EcoSculpt brand. Light theme only (no dark design). */
+:root {
+  color-scheme: light;
+
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: var(--color-ink);
+  --card: #ffffff;
+  --card-foreground: var(--color-ink);
+  --popover: #ffffff;
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-brand-strong);
+  --primary-foreground: #ffffff;
+  --secondary: #ffffff;
+  --secondary-foreground: var(--color-brand-strong);
+  --muted: #f3f6f5;
+  --muted-foreground: var(--color-body);
+  --accent: #e7f4ef;
+  --accent-foreground: var(--color-ink);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #d9e2df;
+  --input: #c3cfcb;
+  --ring: var(--color-brand-strong);
+  --chart-1: var(--color-brand-strong);
+  --chart-2: var(--color-brand);
+  --chart-3: var(--color-ink);
+  --chart-4: var(--color-body);
+  --chart-5: oklch(0.769 0.188 70.08);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
