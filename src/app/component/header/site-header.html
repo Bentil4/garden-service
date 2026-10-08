@@ -1,0 +1,89 @@
+<header
+  class="border-b border-white/70 bg-linear-to-b from-black/45 to-transparent px-4 py-4 sm:px-8 lg:px-12 lg:py-6 xl:px-[98px]"
+>
+  <div class="mx-auto flex max-w-[1244px] items-center justify-between gap-6">
+    <a
+      class="font-heading text-logo font-semibold text-white"
+      href="#main"
+      aria-label="EcoSculpt, back to top"
+    >
+      EcoSculpt
+    </a>
+
+    <nav class="hidden lg:block" aria-label="Primary">
+      <ul class="flex items-center gap-12 xl:gap-16">
+        @for (link of navLinks; track link.label) {
+          <li>
+            <a
+              class="inline-flex min-h-11 items-center gap-2 font-heading font-semibold text-white"
+              [href]="link.href"
+            >
+              {{ link.label }}
+              @if (link.hasChevron) {
+                <img ngSrc="icons/chevron-down.svg" width="24" height="24" alt="" />
+              }
+            </a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <div class="hidden items-center gap-8 lg:flex">
+      <button hlmBtn type="button">Login</button>
+      <button hlmBtn variant="secondary" type="button">Sign up</button>
+    </div>
+
+    <button
+      #menuToggle
+      class="inline-flex size-11 items-center justify-center rounded-full border border-white/70 text-white lg:hidden"
+      type="button"
+      aria-controls="mobile-menu"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Close menu' : 'Open menu'"
+      (click)="toggleMenu()"
+    >
+      <svg
+        class="size-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        @if (menuOpen()) {
+          <path d="M6 6l12 12M18 6L6 18" />
+        } @else {
+          <path d="M4 7h16M4 12h16M4 17h16" />
+        }
+      </svg>
+    </button>
+  </div>
+
+  @if (menuOpen()) {
+    <div id="mobile-menu" class="mx-auto mt-4 max-w-[1244px] rounded-2xl bg-ink p-6 lg:hidden">
+      <nav aria-label="Mobile">
+        <ul class="flex flex-col">
+          @for (link of navLinks; track link.label) {
+            <li>
+              <a
+                class="flex min-h-12 items-center gap-2 font-heading font-semibold text-white"
+                [href]="link.href"
+                (click)="closeMenu()"
+              >
+                {{ link.label }}
+                @if (link.hasChevron) {
+                  <img ngSrc="icons/chevron-down.svg" width="24" height="24" alt="" />
+                }
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+      <div class="mt-4 flex flex-col gap-4 sm:flex-row">
+        <button hlmBtn class="w-full sm:w-auto" type="button">Login</button>
+        <button hlmBtn variant="secondary" class="w-full sm:w-auto" type="button">Sign up</button>
+      </div>
+    </div>
+  }
+</header>
