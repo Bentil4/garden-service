@@ -1,0 +1,60 @@
+<a
+  class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-full focus:bg-white focus:px-6 focus:py-3 focus:font-semibold focus:text-ink"
+  href="#main"
+>
+  Skip to content
+</a>
+<app-site-header />
+<main id="main">
+  <app-hero-section />
+  @defer (hydrate on viewport) {
+    <app-about-section />
+  } @placeholder {
+    <div class="min-h-[67rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-why-choose-section />
+  } @placeholder {
+    <div class="min-h-[44rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-services-section />
+  } @placeholder {
+    <div class="min-h-[67rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-pricing-section />
+  } @placeholder {
+    <div class="min-h-[75rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-gallery-section />
+  } @placeholder {
+    <div class="min-h-[55rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-testimonials-section />
+  } @placeholder {
+    <div class="min-h-[58rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-faq-section />
+  } @placeholder {
+    <div class="min-h-[68rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-blog-section />
+  } @placeholder {
+    <div class="min-h-[68rem]"></div>
+  }
+  @defer (hydrate on viewport) {
+    <app-contact-section />
+  } @placeholder {
+    <div class="min-h-[58rem]"></div>
+  }
+</main>
+@defer (hydrate on viewport) {
+  <app-site-footer />
+} @placeholder {
+  <div class="min-h-[40rem]"></div>
+}
