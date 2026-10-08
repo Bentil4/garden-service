@@ -1,0 +1,31 @@
+<section
+  id="contact"
+  class="px-4 py-16 sm:px-8 lg:px-12 lg:py-20 xl:px-[98px]"
+  aria-labelledby="contact-title"
+>
+  <div class="mx-auto flex max-w-[1244px] flex-col gap-12 lg:gap-20">
+    <app-section-heading
+      headingId="contact-title"
+      title="Contact Us"
+      highlight="Contact"
+      align="center"
+      description="Have a project in mind or a question about our services? Send us a message and our team will get back to you soon."
+    />
+    <div class="grid overflow-hidden rounded-2xl lg:grid-cols-[528fr_716fr]">
+      <div class="relative min-h-56 bg-muted lg:min-h-0">
+        <img
+          class="object-cover"
+          ngSrc="images/contact.webp"
+          ngSrcset="640w, 1100w"
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 42vw, 100vw"
+        />
+        <div class="absolute inset-0 bg-black/20"></div>
+      </div>
+      <div class="bg-primary px-6 py-10 text-primary-foreground sm:px-12 sm:py-14">
+        <app-contact-form />
+      </div>
+    </div>
+  </div>
+</section>
